@@ -1,0 +1,77 @@
+public class Semaforo
+{
+    boolean verde;
+    boolean amar;
+    boolean rojo;
+    int color;
+    
+    void cambiarColor()
+    {
+        if(color == 1)
+        {
+            verde = false;
+            amar = true;
+            rojo = false;
+            color = color + 1;
+        }
+        else
+        {
+            if(color == 2)
+            {
+                verde = false;
+                amar = false;
+                rojo = true;
+                color = color + 1;
+            }
+            else
+            {
+                verde = true;
+                amar = false;
+                rojo = false;
+                color = color - 2;
+            }
+        }
+    }
+    
+    void set(int color)
+    {
+        this.color = color;
+        switch(color)
+        {
+            case 1:
+                verde = true;
+                amar = false;
+                rojo = false;
+                break;
+            case 2:
+                amar = true;
+                verde = false;
+                rojo = false;
+                break;
+            case 3:
+                rojo = true;
+                verde = false;
+                amar = false;
+        }
+    }
+    
+    String get()
+    {
+        String res;
+        switch(color)
+        {
+            case 1:
+                res = "verde";
+                break;
+            case 2:
+                res = "amarillo";
+                break;
+            case 3: 
+                res = "rojo";
+                break;
+            default: 
+                res = "";
+        }
+        return res;
+    }
+}

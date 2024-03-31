@@ -1,0 +1,33 @@
+TÍTULO DEL PROYECTO:             SEMAFORO           
+VERSIÓN o FECHA:                 30/03/2024
+AUTORES:                         INSANOS
+CONTADOR:                        10HRS
+PROBLEMA RESUELTO:
+
+En una ciudad muy peculiar se han instalado semáforos muy peculiares; como todo semáforo,
+    estos tienen tres luces: rojo, amarillo y verde. Cuando un semaforo se instala, este 
+    comienza iluminando rojo. A un semáforo se lo pucde enviar una señal que permite 
+    realizar el cambio de luces. Todo semáforo cuando esta en rojo y recibe una señal de 
+    camblo de luz, esta pasa a iluminar verde; si por el contrario el semáforo está en 
+    verde, éste cambia primero a iluninar amarillo y luego verde.
+    
+Como en toda calle, se instalan dos semáforos sincronizados. Esto significa que si uno 
+    ilumina rojo, el otro ilumina verdo o amarillo según sea el caso. La sincronización 
+    de los semaforos está a cargo de una caja especial que controla los cambios de luces.
+    
+Obviamente la caja de control tiene conexión con los dos semáforos que debe sincronizar, 
+    para enviarles señales que permitan los camblos de luces de forma sincronizada y 
+    correcta para evitar accidentes viales.
+    
+La peculiaridad del control de éstos semáforos radica en cómo hace los cambiosde luz. 
+    Para ello la caja de control usa un número semilla que siempre es positivo y mayor a 1.
+    Este número semilla permite mantener un estado (el número),que empieza con el valor 
+    semilla, que va cambiando con la siguiente función:
+
+para n par   = n/2
+para n impar = (3n+1)/2
+
+Cuando es par se hacen los cambios de luz y se actualiza el estado de acuerdo a la fórmula; por 
+    el contrario cuando es Impar, se actualiza el estado pero no se hacen cambios de luz.
+    Para realizar el cambio, el control usa un método tick() que se ocupa de calcular el estado
+    y hacer los cambios de luz.

@@ -1,0 +1,103 @@
+
+public class Caja
+{
+    int estSemilla = 0;
+    boolean estado;
+    Semaforo sema1;
+    Semaforo sema2;
+    String res;
+    
+    
+    Caja(int semilla)
+    {
+        estSemilla = semilla;
+        this.sema1 = new Semaforo();
+        this.sema2 = new Semaforo();
+    }
+    
+    String encender()
+    {
+        if(estSemilla > 1)
+        {
+            estado = true;
+            sema1.set(3);
+            sema2.set(3);
+            res = "Encendido";
+        }
+        else
+        {
+            res = "vuelve a ingresar semilla";
+        }
+        return res;
+    }
+    
+    void cambiarSemilla(int num)
+    {
+        estSemilla = num;
+    }
+    
+    void Tick()
+    {
+        if(estado)
+        {
+            if(estSemilla % 2 == 0)
+            {
+                if(getColorSem2() != getColorSem1())
+                {
+                    if(getColorSem1() == "verde" && getColorSem2() == "rojo")
+                    {
+                        sema1.cambiarColor();
+                    }
+                    else
+                    {
+                        if(getColorSem1() == "amarillo" && getColorSem2() == "rojo")
+                        {
+                            sema1.cambiarColor();
+                            sema2.cambiarColor();
+                        }else
+                        {
+                            if(getColorSem1() == "rojo" && getColorSem2() == "verde")
+                            {
+                                sema2.cambiarColor();
+                            }
+                            else
+                            {
+                                if(getColorSem1() == "rojo" && getColorSem2() == "amarillo")
+                                {
+                                    sema1.cambiarColor();
+                                    sema2.cambiarColor();
+                                }
+                            }
+                        }
+                    }
+                    estSemilla = estSemilla / 2;
+                }else
+                {
+                    if(getColorSem2() == getColorSem1())
+                    {   
+                        sema1.set(1);
+                    }   
+                }
+            }
+            else
+            {
+                estSemilla = ((estSemilla * 3) +1) / 2;
+            }
+        }
+        
+    }
+    
+    String getColorSem1()
+    {
+        String color;
+        color = sema1.get();
+        return color;
+    }
+    
+    String getColorSem2()
+    {
+        String color;
+        color = sema2.get();
+        return color;
+    }
+}
