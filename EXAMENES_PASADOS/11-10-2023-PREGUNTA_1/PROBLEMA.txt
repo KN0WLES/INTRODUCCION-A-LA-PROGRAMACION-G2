@@ -1,0 +1,23 @@
+
+Ejercicio 1 (60 pts.) Se dice que dos numeros estan "trasroscados" si tienen similitud en sus extremos. Todo numero tiene su vaka y lleva en su memoria el numero de candidstce que estan "trasroscados" con el, obviamnete ambos datos el valor y el numero de candidatos es información muy personal y privada del numero.
+Por lo que el numero debe permitir que le pregunten transroscadoConmigo? y recibir el valor candidato. Para que dos valores esten trasroscados el digito de las unidades de un valor debe ser igual al digito mas
+significativo del otro valor y viceversa. Tal vez te sea útil esta información, todo mumero también es desnable que sepa cuan grande en su valor, es decir cuantos dígitos tiene. Matemáticamente se sabe por definición que el 10 tiene 2 cifras y el logo10 = 1, el 100 tiene 3 cifras y logro 100 2 y ani sucesivamente. En java la operación de logaritmo en base 10 es
+verb-Math.log10(double x)
+si se tiene un numero con valor 345 y le preguntamos tranaroscado Conmigo (321), la respuesta debe ser no ya que los extremos no son similares y tampoco trasroscados.
+Por ejemplo:
+En este ejemplo 345, tiene extremos 3 y 5, el valor candidato tienen 3 y 1, el 3 no es igual al 1 y el 5 no es igual al 3.
+m se tiene un numero con valor 432 y le preguntamos transroscadoConmigo(25734), la respuesta debe ser si ya que los catremos son iguales y estan trasroscados, ademas secretamente el numero debe contar que tiene un candidato trasroscado mas.
+432
+25734
+Aaaahhhhh, me olvidaba los números no pueden trasroscarse con valores que tengan un tamaño que le
+triplique a su tamaño:(.
+si se tiene un numero con valor 1 y le preguntamos transroscadoConmigo(11111), la respuesta debe ser no, aunque sus extremos estan iguales y trasroscados, lastimosamente el valor candidato le triplica en tamaño. si se tiene un numero con valor 7 y le preguntamos transroscadoConmigo(77), la respuesta debe ser si,
+ademas secretamente el numero debe contar que tiene un candidato trasroscado mas.
+En cualquier momento, el numero debería responder respecto al numero de candidatos traerosciados y al
+tamaño del numero. Una vez que entendiste, se te pide dado el contexto:
+1. (8 ptos.) Modelar la solución del problema
+
+2. (25 ptos.) Deline/implementa el proceso que permita decidir si un numero esta "trasroscado" con un valor candidatO
+3. (6 ptos) Define/implementa el proceso que permite al numero indicar cual es su tamaño 4. (6 ptos.) Define/implementa el proceso que permite al numero indicar cual es el numero de candidatos
+"trasroscados" que tiene hasta el momento.
+5. (15 ptos.) Si adicionalmente ahora se decide que un numero puede cambiar de valor, implementa la funcionalidad necesaria que permita al numero tener toda su información consistente

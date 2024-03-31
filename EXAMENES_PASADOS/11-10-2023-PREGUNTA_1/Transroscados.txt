@@ -1,0 +1,60 @@
+public class Transroscados {
+    //atributos
+    int num1;
+    
+    public Transroscados(int num1){
+        this.num1 = num1;
+    }
+    
+    public String transroscadoConmigo(int num2){
+        String respuesta = "";
+        int cantCifrasNum1 = (int) Math.log10(num1) + 1;
+        int cantCifrasNum2 = (int) Math.log10(num2) + 1;  
+
+        //condicional
+        if(cantCifrasNum1 <= cantCifrasNum2 && cantCifrasNum2 < cantCifrasNum1*3){
+             //4                4                   6                 2*3
+             double numInicioNum1 = this.num1;
+             double numFinalNum1 = this.num1;
+             double numInicioNum2 = num2;
+             double numFinalNum2 = num2;
+             int cont1 = cantCifrasNum1;
+             int cont2 = cantCifrasNum2;
+             
+             //calculamos las primeras cifras de ambos numeros
+             if(Math.log10(numInicioNum1) == 0 ){
+                //(54)1 cifras y mi cifra 0 es 4
+                //ya es el primer numero
+             } else {
+                numInicioNum1 = numInicioNum1 % 10;
+             } 
+                
+             if(Math.log10(numInicioNum2) == 0 ){
+                //(367)1 cifras y mi cifra 0 es 7
+                //ya es el primer numero
+             } else {
+                numInicioNum2 = numInicioNum2 % 10;
+             }    
+              
+             //calculamos las ultimas cifras de ambos numeros   
+             if(Math.log10(numFinalNum1) != 0) {
+                 numFinalNum1 = (int) (numFinalNum1 / Math.pow(10, cont1 - 1));
+             }
+             
+             if(Math.log10(numFinalNum2) != 0) {
+                 numFinalNum2 = (int) (numFinalNum2 / Math.pow(10, cont2 - 1));
+             }
+
+             //567      7805
+             if(numFinalNum1 == numInicioNum2 && numInicioNum1 == numFinalNum2){
+                respuesta = "si es transroscado";
+             } else {
+                respuesta = "no es transroscado";
+             }
+        } else {
+            respuesta = "no se puede comparar porque el numero le triplica en cifras al primer numero";
+        }
+        
+        return respuesta;
+    }
+} 
