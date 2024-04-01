@@ -1,0 +1,40 @@
+public class Calculador {
+
+    // Método para calcular el área total disponible para sembrar
+    public double calcularAreaSiembra(double radio, double tamañoA, double tamañoB, double puntoD) {
+        // Área del círculo
+        double areaCirculo = Math.PI * Math.pow(radio, 2);
+
+        // Lado del rectángulo (tamañoB) forma el diámetro del círculo
+        double ladoRectangulo = tamañoB;
+
+        // La mitad de la base del rectángulo (tamañoA/2) forma el radio del círculo
+        double radioRectangulo = tamañoA / 2;
+
+        // Calcular altura del rectángulo usando el teorema de Pitágoras
+        double alturaRectangulo = Math.sqrt(Math.pow(ladoRectangulo, 2) - Math.pow(radioRectangulo, 2));
+
+        // Área del rectángulo
+        double areaRectangulo = ladoRectangulo * alturaRectangulo;
+
+        // Área total disponible para sembrar (Área del círculo - Área del rectángulo)
+        double areaTotal = areaCirculo - areaRectangulo;
+
+        return areaTotal;
+    }
+
+    public static void main(String[] args) {
+        // Ejemplo de uso
+        Calculador calculador = new Calculador();
+        // Se dan los valores del radio del círculo, el tamaño del taller A y B, y las coordenadas del punto D
+        double radio = 5.0;
+        double tamañoA = 6.0;
+        double tamañoB = 4.0;
+        double puntoD = 2.0;
+        // Se calcula el área total disponible para sembrar
+        double areaTotal = calculador.calcularAreaSiembra(radio, tamañoA, tamañoB, puntoD);
+        // Se imprime el resultado
+        System.out.println("El área total disponible para sembrar es: " + areaTotal);
+    }
+}
+

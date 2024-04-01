@@ -1,0 +1,40 @@
+public class Calculador{
+    
+    int A,B;
+    double D;
+    boolean estado;
+    String res = "";
+    
+    Calculador(int base, int altura )
+    {
+        A = base;
+        B = altura;
+        estado = true;
+    }
+    
+    public String calcularAreaSiembra()
+    {
+        double areaRect;
+        double diamCirc;
+        double radioCirc;
+        double areaCirc;
+        double areaTotal;
+            if(estado)
+            {
+                //Area rectangulo
+                areaRect = A * B;
+                //Diametro circulo
+                diamCirc = Math.sqrt(Math.pow(A,2)+Math.pow(B,2));
+                //Radio circulo
+                radioCirc = diamCirc / 2;
+                //Area circulo 
+                areaCirc = Math.PI * Math.pow(radioCirc,2);
+                //Hallara el punto medio
+                D = ( A / 2 ) + ( B / 2 );
+                //Area siembra
+                areaTotal = areaCirc - areaRect;
+                res = "El area disponilble para sembrar es: "+ areaTotal;
+            }
+        return res;
+    }
+
